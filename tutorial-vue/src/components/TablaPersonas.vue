@@ -11,21 +11,13 @@
             </thead>
        
         <tbody>
-            <tr>
-                <td>Jon</td>
-                <td>Nieve</td>
-                <td>jon@email.com</td>
+            <tr v-for="persona in ppersonas" :key="persona_id">
+                <td>
+                  {{ persona.nombre }}  
+                </td>
+                <td>{{ persona.apellido }}</td>
+                <td>{{ persona.email }}</td>
             </tr>
-            <tr>
-        <td>Tyrion</td>
-        <td>Lannister</td>
-        <td>tyrion@email.com</td>
-        </tr>
-        <tr>
-        <td>Daenerys</td>
-        <td>Targaryen</td>
-        <td>daenerys@email.com</td>
-        </tr>
         </tbody>
     </table>
     </div>
