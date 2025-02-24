@@ -3,7 +3,7 @@
     <!-- Contenedor principal del componente -->
     <div id="formulario-persona">
         <!-- Formulario con campos para ingresar informacion de una persona -->
-        <form>
+        <form @submit.prevent="enviarFormulario">
             <div class="container">
                 <!-- Primera fila con campos de nombre, apellido y email -->
                 <div class="row">
@@ -43,22 +43,25 @@
     </div>
 </template>
 <script setup>
-// Importacion de la funcion "ref" de Vue 3
 import { ref } from 'vue';
-// definicion del componente
+
 defineOptions({
-    // nombre del componente
     name: 'formulario-persona',
 });
-// Declaracion de una variable reactiva "persona" con propiedades nombre,→ apellido y email
 const persona = ref({
     nombre: '',
     apellido: '',
     email: '',
 });
+
+const emit = defineEmits(['add-persona']);
+const enviarFormulario = () => {
+console.log('Works!');
+emit('add-persona', persona.value);
+};
+
 </script>
 <style scoped>
-/* Estilos especificos del componente con el modificador "scoped" */
 form {
     margin-bottom: 2rem;
 }

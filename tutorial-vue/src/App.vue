@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <formulario-persona />
+        <formulario-persona @add-persona="agregarPersona" />
         <tabla-personas :personas="personas" />
       </div>
     </div>
@@ -42,6 +42,16 @@ const personas = ref([
   },
 
 ]);
+
+const agregarPersona = (persona) => {
+  let id = 0;
+if (personas.value.length > 0) {
+id = personas.value[personas.value.length - 1].id + 1;
+}
+
+personas.value = [...personas.value, persona];
+};
+
 </script>
 <style>
 button {
