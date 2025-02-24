@@ -11,21 +11,21 @@
                         <div class="form-group">
                             <!-- Etiqueta y campo de entrada para el nombre -->
                             <label>Nombre</label>
-                            <input type="text" class="form-control" />
+                           <input v-model="persona.nombre" type="text" class="form-control" />
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <!-- Etiqueta y campo de entrada para el apellido -->
                             <label>Apellido</label>
-                            <input type="text" class="form-control" />
+                            <input v-model="persona.apellido" type="text" class="form-control" />
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <!-- Etiqueta y campo de entrada para el correo electronico -->
                             <label>Email</label>
-                            <input type="email" class="form-control" />
+                            <input v-model="persona.email" type="email" class="form-control" />
                         </div>
                     </div>
                 </div>

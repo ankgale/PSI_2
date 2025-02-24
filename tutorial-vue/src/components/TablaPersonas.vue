@@ -11,7 +11,7 @@
             </thead>
        
         <tbody>
-            <tr v-for="persona in ppersonas" :key="persona_id">
+            <tr v-for="persona in personas" :key="persona.id">
                 <td>
                   {{ persona.nombre }}  
                 </td>
@@ -26,7 +26,10 @@
 
 
 <script setup>
-    defineOptions({name: 'tabla-personas',})
+    defineOptions({name: 'tabla-personas',});
+    const props = defineProps({
+        personas: {type: Array, default: []},
+});
 </script>
 
 <style scoped>
