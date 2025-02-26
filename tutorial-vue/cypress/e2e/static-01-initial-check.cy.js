@@ -1,18 +1,18 @@
 describe('Initial website', () => {
   it('passes', () => {
-    cy.visit('http://localhost:5173')
+    cy.visit('https://psi-2-kdur.onrender.com/')
   })
 })
 
 describe('Formulario-persona', () => {
   it('Body and div', () => {
-    cy.visit('http://localhost:5173')
+    cy.visit('https://psi-2-kdur.onrender.com/')
     cy.get('body')
     cy.get('div#formulario-persona')
   })
   
    it('All components', () => {
-    cy.visit('http://localhost:5173')
+    cy.visit('https://psi-2-kdur.onrender.com/')
     cy.get('[data-cy=name]')
     cy.get('[data-cy=surname]')
     cy.get('[data-cy=email]')
@@ -23,13 +23,13 @@ describe('Formulario-persona', () => {
 
 describe('Tabla persona', () => {
   it('Table', () => {
-    cy.visit('http://localhost:5173')
+    cy.visit('https://psi-2-kdur.onrender.com/')
     cy.get('body')
     cy.get('div#tabla-personas')
   })
   
    it('All components', () => {
-    cy.visit('http://localhost:5173')
+    cy.visit('https://psi-2-kdur.onrender.com/')
     cy.get('div#tabla-personas')
   })
   

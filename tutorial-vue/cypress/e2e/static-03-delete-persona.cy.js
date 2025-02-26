@@ -2,7 +2,7 @@
 
 context('Delete persona', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:5173')
+    cy.visit('https://psi-2-kdur.onrender.com/')
   })
 
 
