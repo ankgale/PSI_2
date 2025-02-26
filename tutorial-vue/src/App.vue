@@ -88,10 +88,10 @@ const eliminarPersona = async (id) => {
     console.error(error);
   }*/
   try {
-await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/'+persona_id+'/', {
+await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/'+id+'/', {
 method: "DELETE"
 });
-personas.value= personas.value.filter(u => u.id !== persona_id);
+personas.value= personas.value.filter(u => u.id !== id);
 } catch (error) {
 console.error(error);
 }
