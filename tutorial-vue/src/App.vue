@@ -113,7 +113,7 @@ body: JSON.stringify(personaActualizada),
 headers: { 'Content-type': 'application/json; charset=UTF-8' },
 });
 const personaActualizadaJS = await response.json();
-personas.value = personas.value.map(u => (u.id ===personaActualizada.id ? personaActualizadaJS : u));
+personas.value = personas.value.map(u => (u.id ===id? personaActualizadaJS : u));
 } catch (error) {
 console.error(error);
 }
