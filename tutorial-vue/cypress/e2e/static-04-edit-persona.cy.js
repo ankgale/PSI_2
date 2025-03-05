@@ -2,7 +2,7 @@
 
 context('Edit persona', () => {
   beforeEach(() => {
-    cy.visit('https://psi-2-kdur.onrender.com/')
+    cy.visit('http://localhost:5173')
   })
 
 
@@ -18,6 +18,8 @@ context('Edit persona', () => {
       cy.get('[data-cy=email]').type("paco@land.com")
       cy.get('[data-cy=add-button]').click()
       cy.get('div.alert-success')
+
+      cy.wait(1000)
 
       cy.get("table").find("tr").its('length').then(initialLength => {
 
@@ -39,6 +41,8 @@ context('Edit persona', () => {
       cy.get('[data-cy=email]').type("paco@land.com")
       cy.get('[data-cy=add-button]').click()
       cy.get('div.alert-success')
+
+      cy.wait(1000)
 
       cy.get("table").find("tr").its('length').then(initialLength => {
 
