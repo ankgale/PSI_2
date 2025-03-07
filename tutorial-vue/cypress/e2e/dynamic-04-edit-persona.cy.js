@@ -31,6 +31,7 @@ context('Edit persona', () => {
 
 
     it('Edit persona + save', () => {
+      cy.wait(1000)
 
       cy.get("table").find("tr").its('length').then(intialLength => {
 
@@ -48,6 +49,8 @@ context('Edit persona', () => {
     })
 
     it('Edit persona + cancel', () => {
+      cy.wait(1000)
+
 
       cy.get("table").find("tr").its('length').then(intialLength => {
 
