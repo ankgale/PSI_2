@@ -52,7 +52,7 @@ const personas = ref([
 
 const listadoPersonas = async () => {
 // Metodo para obtener un listado de personas
-try{const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/');
+try{const response = await fetch('http://localhost:8001/api/v1/personas/');
 }catch (error){
   console.error(error);
 }
@@ -65,7 +65,7 @@ const agregarPersona = async (persona) => {
   personas.value = [...personas.value, persona];
 */
 try {
-const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/', {
+const response = await fetch('http://localhost:8001/api/v1/personas/', {
 method: 'POST',
 body: JSON.stringify(persona),
 headers: { 'Content-type': 'application/json; charset=UTF-8' },
@@ -88,7 +88,7 @@ const eliminarPersona = async (id) => {
     console.error(error);
   }*/
   try {
-await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/'+id+'/', {
+await fetch('http://localhost:8001/api/v1/personas'+id+'/', {
 method: "DELETE"
 });
 personas.value= personas.value.filter(u => u.id !== id);
@@ -107,7 +107,7 @@ const actualizarPersona = async (id, personaActualizada) => {
     console.error(error);
   }*/
   try {
-const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/'+personaActualizada.id+'/', {
+const response = await fetch('http://localhost:8001/api/v1/personas'+personaActualizada.id+'/', {
 method: 'PUT',
 body: JSON.stringify(personaActualizada),
 headers: { 'Content-type': 'application/json; charset=UTF-8' },
