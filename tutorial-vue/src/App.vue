@@ -19,15 +19,19 @@
         />
       </div>
     </div>
+    <p>Count is {{ store.count }}</p>
   </div>
 </template>
 <script setup>
 import TablaPersonas from '@/components/TablaPersonas.vue'
 import FormularioPersona from '@/components/FormularioPersona.vue'
 import { ref, onMounted } from 'vue';
+import { useCounterStore } from '@/stores/counter';
 defineOptions({
   name: 'App',
 });
+const store = useCounterStore();
+
 const personas = ref([
   {
     id: 1,
@@ -72,6 +76,7 @@ headers: { 'Content-type': 'application/json; charset=UTF-8' },
 });
 const personaCreada = await response.json();
 personas.value = [...personas.value, personaCreada];
+store.increment();
 } catch (error) {
 console.error(error);
 }
