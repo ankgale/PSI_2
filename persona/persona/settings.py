@@ -77,11 +77,10 @@ WSGI_APPLICATION = 'persona.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import dj_database_url
+db_from_env = dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/psi2', conn_max_age=500)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': db_from_env
 }
 
 
@@ -129,10 +128,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
-'http://localhost:5173',
+    'http://localhost:5173',
 ]
 
 REST_FRAMEWORK = {
-'DEFAULT_PERMISSION_CLASSES': [
-'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-],}
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
+}
