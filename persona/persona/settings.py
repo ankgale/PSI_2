@@ -131,8 +131,3 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:5173',
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-    ],
-}
