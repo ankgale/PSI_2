@@ -6,5 +6,11 @@ class Persona(models.Model):
     nombre = models.CharField(max_length=128)
     apellido = models.CharField(max_length=128)
     email = models.EmailField()
+    
+    def __str__(self):
+        return f"{self.nombre} {self.apellido} ({self.id})"
 
-##HACER STR Y META
+    class Meta:
+        verbose_name = "Persona"
+        verbose_name_plural = "Personas"
+        ordering = ["apellido", "nombre"]
