@@ -57,6 +57,8 @@ const personas = ref([
 const listadoPersonas = async () => {
 // Metodo para obtener un listado de personas
 try{const response = await fetch('http://localhost:8001/api/v1/personas/');
+const data = await response.json();
+    personas.value = data; 
 }catch (error){
   console.error(error);
 }
@@ -74,8 +76,9 @@ method: 'POST',
 body: JSON.stringify(persona),
 headers: { 'Content-type': 'application/json; charset=UTF-8' },
 });
-const personaCreada = await response.json();
-personas.value = [...personas.value, personaCreada];
+await response.json();
+
+await listadoPersonas();
 store.increment();
 } catch (error) {
 console.error(error);
@@ -93,7 +96,7 @@ const eliminarPersona = async (id) => {
     console.error(error);
   }*/
   try {
-await fetch('http://localhost:8001/api/v1/personas'+id+'/', {
+await fetch('http://localhost:8001/api/v1/personas/'+id+'/', {
 method: "DELETE"
 });
 personas.value= personas.value.filter(u => u.id !== id);
@@ -112,7 +115,7 @@ const actualizarPersona = async (id, personaActualizada) => {
     console.error(error);
   }*/
   try {
-const response = await fetch('http://localhost:8001/api/v1/personas'+personaActualizada.id+'/', {
+const response = await fetch('http://localhost:8001/api/v1/personas/'+personaActualizada.id+'/', {
 method: 'PUT',
 body: JSON.stringify(personaActualizada),
 headers: { 'Content-type': 'application/json; charset=UTF-8' },
