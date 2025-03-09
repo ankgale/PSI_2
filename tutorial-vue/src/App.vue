@@ -54,7 +54,7 @@ const personas = ref([
 
 ]);
 const API_URL = `${import.meta.env.VITE_DJANGOURL}/personas/`;
-
+console.log(API_URL); 
 const listadoPersonas = async () => {
 // Metodo para obtener un listado de personas
 try{const response = await fetch(`${API_URL}`);
