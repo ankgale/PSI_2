@@ -1,0 +1,3 @@
+url api django: https://psi-2-server.onrender.com/api/v1
+url vue.js: https://psi-2-kdur.onrender.com
+url neon: https://console.neon.tech/app/projects/old-hat-72736459/branches/br-twilight-pine-a9renqu6/tables?database=psi2
