@@ -77,12 +77,28 @@ WSGI_APPLICATION = 'persona.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-import dj_database_url
-db_from_env = dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/psi2', conn_max_age=500)
-DATABASES = {
-    'default': db_from_env
-}
+#import dj_database_url
+#db_from_env = dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/psi2', conn_max_age=500)
+#DATABASES = {
+#    'default': db_from_env
+#}
+#postgresql://psi2_owner:npg_dALwb7Vk8jpx@ep-muddy-voice-a9yi80tw-pooler.gwc.azure.neon.tech/psi2?sslmode=require
 
+
+import os
+import dj_database_url
+
+POSTGRESQL_URL = "postgres://alumnodb:alumnodb@localhost:5432/psi2"
+NEON_URL = "postgresql://psi2_owner:npg_dALwb7Vk8jpx@ep-muddy-voice-a9yi80tw-pooler.gwc.azure.neon.tech/psi2?sslmode=require"
+
+if "TESTING" in os.environ:
+    db_from_env = dj_database_url.config(default=POSTGRESQL_URL, conn_max_age=500)
+else:
+    db_from_env = dj_database_url.config(default=NEON_URL, conn_max_age=500)
+
+DATABASES = {
+    "default": db_from_env
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
