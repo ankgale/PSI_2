@@ -53,10 +53,11 @@ const personas = ref([
   },
 
 ]);
+const API_URL = import.meta.env.VITE_DJANGOURL + "/personas/";
 
 const listadoPersonas = async () => {
 // Metodo para obtener un listado de personas
-try{const response = await fetch('http://localhost:8001/api/v1/personas/');
+try{const response = await fetch(API_URL);
 const data = await response.json();
     personas.value = data; 
 }catch (error){
@@ -71,7 +72,7 @@ const agregarPersona = async (persona) => {
   personas.value = [...personas.value, persona];
 */
 try {
-const response = await fetch('http://localhost:8001/api/v1/personas/', {
+const response = await fetch(API_URL, {
 method: 'POST',
 body: JSON.stringify(persona),
 headers: { 'Content-type': 'application/json; charset=UTF-8' },
@@ -96,7 +97,7 @@ const eliminarPersona = async (id) => {
     console.error(error);
   }*/
   try {
-await fetch('http://localhost:8001/api/v1/personas/'+id+'/', {
+await fetch(API_URL+id+'/', {
 method: "DELETE"
 });
 personas.value= personas.value.filter(u => u.id !== id);
@@ -115,7 +116,7 @@ const actualizarPersona = async (id, personaActualizada) => {
     console.error(error);
   }*/
   try {
-const response = await fetch('http://localhost:8001/api/v1/personas/'+personaActualizada.id+'/', {
+const response = await fetch(API_URL+personaActualizada.id+'/', {
 method: 'PUT',
 body: JSON.stringify(personaActualizada),
 headers: { 'Content-type': 'application/json; charset=UTF-8' },
